@@ -12,6 +12,4 @@ for x in range(t):
         tm += l
         l=0
         r-=tm
-        
-            
     print(l, r)
