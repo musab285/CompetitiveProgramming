@@ -15,6 +15,17 @@ using namespace std;
 #define chota INT_MIN
 #define bohotbara LLONG_MAX
 #define bohotchota LLONG_MIN
+#define all(x) x.begin(), x.end()
+
+bool isSortedasc(vector<int> &arr)
+{
+    for (int i = 0; i < arr.size() - 1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+            return false;
+    }
+    return true;
+}
 
 void solve()
 {
@@ -35,27 +46,22 @@ void solve()
             mn = min(arr[i], mn);
             if(mn==arr[i]) mni = i;
         }
-        bool flg = false;
-        int i = 0;
-        while( !flg && i<n-1){
-            if(arr[i] > arr[i+1]){
-                flg = true;
-            }
-            i++;
-        } 
-        if (!flg){
+        if (isSortedasc(arr)){
             cout<<0<<endl;
-            ;
         }
-
-        else if(mxi==n-1 || mni==0){   
-            cout<<1<<endl;
+        else{
+            int cnt = 0;
+            while(!isSortedasc(arr)){
+                if(mni<mxi && mxi!=n-1){
+                    sort(arr.begin()+1, arr.end());
+                    mxi=n-1;} 
+                else{
+                    sort(arr.begin(), arr.end()-1);
+                    mni=0;}
+                cnt++;
+            }
+            cout<<cnt<<endl;
         }
-        else if(mni> mxi){
-            cout<<3<<endl;
-        }else{
-            cout<<2<<endl;
-        } 
     }
 }
 

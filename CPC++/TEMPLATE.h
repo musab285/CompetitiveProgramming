@@ -10,8 +10,23 @@ using namespace std;
 #define yn(x) (x ? "YES" : "NO")
 #define pb push_back
 #define pop pop_back
-#define bohotbara INT_MAX
-#define bohotchota INT_MIN
+#define bara INT_MAX
+#define chota INT_MIN
+#define bohotbara LLONG_MAX
+#define bohotchota LLONG_MIN
+#define all(x) x.begin(), x.end()
+
+bool isSortedasc(vector<int> &arr)
+{
+    for (int i = 0; i < arr.size() - 1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+            return false;
+    }
+    return true;
+}
+
+
 
 void solve()
 {
