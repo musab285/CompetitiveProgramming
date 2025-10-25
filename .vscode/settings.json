@@ -3,7 +3,8 @@
         "iostream": "cpp",
         "algorithm": "cpp",
         "cstdlib": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "utility": "cpp"
     },
     "python.testing.unittestArgs": [
         "-v",
